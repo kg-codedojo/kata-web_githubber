@@ -1,0 +1,21 @@
+@(watchers:List[String], githubberForm:Form[controllers.Application.Githubber])
+
+@import helper._
+
+@main("Welcome to Play 2.0") {
+
+@form(routes.Application.getWatchers()){
+    @inputText(githubberForm("user"))
+    @inputText(githubberForm("project"))
+    <input type="submit" value="Get watchers"/>
+
+}
+
+<ul>
+    @for(watcher <- watchers){
+        <li>@watcher</li>
+    }
+</ul>
+
+
+}
